@@ -215,7 +215,7 @@ class BookmarkManager {
 
     getCategoryHTML(category, bookmarks) {
         const categoryLabels = {
-            materias: 'Matérias',
+            materias: 'Articles',
             designers: 'Designers',
             studios: 'Studios',
             portfolios: 'Portfolios'
