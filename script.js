@@ -9,25 +9,10 @@ class BookmarkManager {
     init() {
         this.bindEvents();
         this.renderBookmarks();
-        this.updateFilterButtons();
     }
 
     bindEvents() {
-        // Search
-        document.getElementById('searchInput').addEventListener('input', (e) => this.handleSearch(e));
-
-        // Filter buttons
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleFilter(e));
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 'k') {
-                e.preventDefault();
-                document.getElementById('searchInput').focus();
-            }
-        });
+        // No events needed for simple display
     }
 
     loadBookmarks() {
@@ -155,21 +140,35 @@ class BookmarkManager {
     }
 
     renderBookmarks() {
-        const container = document.getElementById('bookmarksGrid');
-        const filteredBookmarks = this.getFilteredBookmarks();
+        const container = document.getElementById('bookmarksContainer');
 
-        if (filteredBookmarks.length === 0) {
+        if (this.bookmarks.length === 0) {
             container.innerHTML = this.getEmptyStateHTML();
             return;
         }
 
-        container.innerHTML = filteredBookmarks.map(bookmark => this.getBookmarkHTML(bookmark)).join('');
+        // Agrupar bookmarks por categoria
+        const groupedBookmarks = this.groupBookmarksByCategory();
         
-        // Bind delete and edit events
-        this.bindBookmarkEvents();
+        container.innerHTML = Object.entries(groupedBookmarks)
+            .map(([category, bookmarks]) => this.getCategoryHTML(category, bookmarks))
+            .join('');
+            
+        // Adicionar eventos de toggle
+        this.bindCategoryToggles();
     }
 
-    getBookmarkHTML(bookmark) {
+    groupBookmarksByCategory() {
+        return this.bookmarks.reduce((groups, bookmark) => {
+            if (!groups[bookmark.category]) {
+                groups[bookmark.category] = [];
+            }
+            groups[bookmark.category].push(bookmark);
+            return groups;
+        }, {});
+    }
+
+    getCategoryHTML(category, bookmarks) {
         const categoryLabels = {
             materias: 'Matérias',
             designers: 'Designers',
@@ -185,21 +184,46 @@ class BookmarkManager {
         };
 
         return `
-            <div class="bookmark-card category-${bookmark.category}" data-id="${bookmark.id}">
-                <div class="bookmark-header">
-                    <div>
-                        <h3 class="bookmark-title">${this.escapeHtml(bookmark.title)}</h3>
-                        <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer" class="bookmark-url">
-                            ${this.truncateUrl(bookmark.url)}
-                        </a>
+            <div class="category-section">
+                <div class="category-header" data-category="${category}">
+                    <h2 class="category-title">
+                        ${categoryLabels[category]}
+                    </h2>
+                    <button class="category-toggle">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
+                <div class="category-content active">
+                    <div class="bookmarks-grid">
+                        ${bookmarks.map(bookmark => this.getBookmarkHTML(bookmark)).join('')}
                     </div>
                 </div>
+            </div>
+        `;
+    }
+
+    bindCategoryToggles() {
+        document.querySelectorAll('.category-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const toggle = header.querySelector('.category-toggle i');
                 
-                ${bookmark.description ? `<p class="bookmark-description">${this.escapeHtml(bookmark.description)}</p>` : ''}
-                
-                <div class="bookmark-category">
-                    <i class="${categoryIcons[bookmark.category]}"></i>
-                    ${categoryLabels[bookmark.category]}
+                content.classList.toggle('active');
+                toggle.classList.toggle('fa-chevron-up');
+                toggle.classList.toggle('fa-chevron-down');
+            });
+        });
+    }
+
+    getBookmarkHTML(bookmark) {
+        return `
+            <div class="bookmark-card" data-id="${bookmark.id}">
+                <div class="bookmark-content">
+                    <h3 class="bookmark-title">${this.escapeHtml(bookmark.title)}</h3>
+                    <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer" class="bookmark-url">
+                        ${this.truncateUrl(bookmark.url)}
+                    </a>
+                    ${bookmark.description ? `<p class="bookmark-description">${this.escapeHtml(bookmark.description)}</p>` : ''}
                 </div>
             </div>
         `;
