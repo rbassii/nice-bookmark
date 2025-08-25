@@ -25,38 +25,83 @@ class BookmarkManager {
         return [
             {
                 id: 1,
-                title: 'Dribbble - Design Inspiration',
-                url: 'https://dribbble.com',
-                description: 'Plataforma com os melhores designs e inspirações visuais do mundo.',
-                category: 'designers',
-                tags: ['design', 'inspiração', 'ui/ux'],
-                createdAt: new Date().toISOString()
-            },
-            {
-                id: 2,
-                title: 'Awwwards - Website Awards',
-                url: 'https://awwwards.com',
-                description: 'Reconhece e promove o talento e esforço dos melhores desenvolvedores, designers e agências web do mundo.',
-                category: 'portfolios',
-                tags: ['web design', 'awards', 'portfolios'],
-                createdAt: new Date().toISOString()
-            },
-            {
-                id: 3,
-                title: 'Pentagram Design',
-                url: 'https://pentagram.com',
-                description: 'Um dos estúdios de design mais respeitados do mundo, conhecido por identidades visuais icônicas.',
-                category: 'studios',
-                tags: ['branding', 'identidade visual', 'design gráfico'],
-                createdAt: new Date().toISOString()
-            },
-            {
-                id: 4,
                 title: 'A List Apart - Web Design Articles',
                 url: 'https://alistapart.com',
                 description: 'Artigos aprofundados sobre design web, desenvolvimento e estratégia digital.',
                 category: 'materias',
                 tags: ['artigos', 'web design', 'desenvolvimento'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 2,
+                title: 'Don\'t Trust the Design Process',
+                url: 'https://jennywen.ca/notes/dont-trust-the-design-process',
+                description: '',
+                category: 'materias',
+                tags: ['design', 'processo'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 3,
+                title: 'Designers, Designers, Designers',
+                url: 'https://carly.substack.com/p/designers-designers-designers',
+                description: '',
+                category: 'materias',
+                tags: ['design', 'carreira'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 4,
+                title: 'A Screenless Future',
+                url: 'https://collabfund.com/blog/a-screenless-future/',
+                description: '',
+                category: 'materias',
+                tags: ['futuro', 'tecnologia'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 5,
+                title: 'NoSpec - Stop Working for Free',
+                url: 'https://www.nospec.com/',
+                description: '',
+                category: 'materias',
+                tags: ['design', 'negócios'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 6,
+                title: 'How to Measure the ROI of AI Coding Assistants',
+                url: 'https://thenewstack.io/how-to-measure-the-roi-of-ai-coding-assistants/',
+                description: '',
+                category: 'materias',
+                tags: ['ai', 'desenvolvimento'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 7,
+                title: 'Designing AI Agents That Work at Work',
+                url: 'https://www.designexecutivecouncil.com/insights/designing-ai-agents-that-work-at-work',
+                description: '',
+                category: 'materias',
+                tags: ['ai', 'design'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 8,
+                title: 'Small Bets',
+                url: 'https://mikefisher.substack.com/p/small-bets',
+                description: '',
+                category: 'materias',
+                tags: ['estratégia', 'negócios'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 9,
+                title: 'Dan Hollick - Typefully',
+                url: 'https://typefully.com/DanHollick',
+                description: '',
+                category: 'materias',
+                tags: ['escrita', 'conteúdo'],
                 createdAt: new Date().toISOString()
             }
         ];
@@ -219,9 +264,8 @@ class BookmarkManager {
         return `
             <div class="bookmark-card" data-id="${bookmark.id}">
                 <div class="bookmark-content">
-                    <h3 class="bookmark-title">${this.escapeHtml(bookmark.title)}</h3>
-                    <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer" class="bookmark-url">
-                        ${this.truncateUrl(bookmark.url)}
+                    <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer" class="bookmark-title">
+                        ${this.escapeHtml(bookmark.title)}
                     </a>
                     ${bookmark.description ? `<p class="bookmark-description">${this.escapeHtml(bookmark.description)}</p>` : ''}
                 </div>
