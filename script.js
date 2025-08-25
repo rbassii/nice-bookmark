@@ -13,15 +13,6 @@ class BookmarkManager {
     }
 
     bindEvents() {
-        // Modal controls
-        document.getElementById('addBookmarkBtn').addEventListener('click', () => this.openModal());
-        document.getElementById('closeModal').addEventListener('click', () => this.closeModal());
-        document.getElementById('cancelBtn').addEventListener('click', () => this.closeModal());
-        document.getElementById('modalOverlay').addEventListener('click', () => this.closeModal());
-
-        // Form submission
-        document.getElementById('bookmarkForm').addEventListener('submit', (e) => this.handleFormSubmit(e));
-
         // Search
         document.getElementById('searchInput').addEventListener('input', (e) => this.handleSearch(e));
 
@@ -32,7 +23,6 @@ class BookmarkManager {
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') this.closeModal();
             if (e.ctrlKey && e.key === 'k') {
                 e.preventDefault();
                 document.getElementById('searchInput').focus();
@@ -203,14 +193,6 @@ class BookmarkManager {
                             ${this.truncateUrl(bookmark.url)}
                         </a>
                     </div>
-                    <div class="bookmark-actions">
-                        <button class="action-btn edit-btn" onclick="bookmarkManager.editBookmark(${bookmark.id})">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="action-btn delete-btn" onclick="bookmarkManager.deleteBookmark(${bookmark.id})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
                 </div>
                 
                 ${bookmark.description ? `<p class="bookmark-description">${this.escapeHtml(bookmark.description)}</p>` : ''}
@@ -219,12 +201,6 @@ class BookmarkManager {
                     <i class="${categoryIcons[bookmark.category]}"></i>
                     ${categoryLabels[bookmark.category]}
                 </div>
-                
-                ${bookmark.tags.length > 0 ? `
-                    <div class="bookmark-tags">
-                        ${bookmark.tags.map(tag => `<span class="tag">${this.escapeHtml(tag)}</span>`).join('')}
-                    </div>
-                ` : ''}
             </div>
         `;
     }

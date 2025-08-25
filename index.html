@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Bookmarks</title>
+    <title>Nice bookmark</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -13,9 +13,8 @@
         <header class="header">
             <h1 class="title">
                 <i class="fas fa-bookmark"></i>
-                Meus Bookmarks
+                Nice bookmark
             </h1>
-            <p class="subtitle">Referências, designers, studios e portfolios que admiro</p>
         </header>
 
         <div class="controls">
@@ -47,61 +46,12 @@
                 </button>
             </div>
 
-            <button class="add-btn" id="addBookmarkBtn">
-                <i class="fas fa-plus"></i>
-                Adicionar
-            </button>
         </div>
 
         <div class="bookmarks-grid" id="bookmarksGrid">
             <!-- Bookmarks serão inseridos aqui via JavaScript -->
         </div>
 
-        <!-- Modal para adicionar bookmark -->
-        <div class="modal" id="addModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Adicionar Bookmark</h2>
-                    <button class="close-btn" id="closeModal">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <form id="bookmarkForm">
-                    <div class="form-group">
-                        <label for="title">Título</label>
-                        <input type="text" id="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="url">URL</label>
-                        <input type="url" id="url" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Descrição</label>
-                        <textarea id="description" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="category">Categoria</label>
-                        <select id="category" required>
-                            <option value="">Selecione uma categoria</option>
-                            <option value="materias">Matérias</option>
-                            <option value="designers">Designers</option>
-                            <option value="studios">Studios</option>
-                            <option value="portfolios">Portfolios</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="tags">Tags (separadas por vírgula)</label>
-                        <input type="text" id="tags" placeholder="design, ui/ux, inspiração">
-                    </div>
-                    <div class="form-actions">
-                        <button type="button" class="btn-cancel" id="cancelBtn">Cancelar</button>
-                        <button type="submit" class="btn-save">Salvar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="modal-overlay" id="modalOverlay"></div>
     </div>
 
     <script src="script.js"></script>

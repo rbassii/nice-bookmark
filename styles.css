@@ -25,8 +25,8 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'JetBrains Mono', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace, sans-serif;
+    background: #FFFFFF;
     min-height: 100vh;
     color: var(--text-primary);
     line-height: 1.6;
@@ -47,7 +47,7 @@ body {
 .title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: white;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -221,42 +221,6 @@ body {
     text-decoration: underline;
 }
 
-.bookmark-actions {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.action-btn {
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    font-size: 0.875rem;
-}
-
-.edit-btn {
-    background: #f3f4f6;
-    color: var(--text-secondary);
-}
-
-.edit-btn:hover {
-    background: #e5e7eb;
-    color: var(--text-primary);
-}
-
-.delete-btn {
-    background: #fef2f2;
-    color: var(--danger-color);
-}
-
-.delete-btn:hover {
-    background: #fee2e2;
-}
 
 .bookmark-description {
     color: var(--text-secondary);
@@ -277,160 +241,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.bookmark-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
 
-.tag {
-    padding: 0.25rem 0.5rem;
-    background: rgba(99, 102, 241, 0.1);
-    color: var(--primary-color);
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    display: none;
-}
-
-.modal-overlay.active {
-    display: block;
-}
-
-.modal-content {
-    background: white;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    width: 100%;
-    max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 1.5rem 0;
-    margin-bottom: 1rem;
-}
-
-.modal-header h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.close-btn {
-    width: 40px;
-    height: 40px;
-    border: none;
-    background: var(--hover-color);
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.close-btn:hover {
-    background: var(--border-color);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-    padding: 0 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius);
-    font-size: 1rem;
-    transition: all 0.2s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-.form-actions {
-    display: flex;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.btn-cancel,
-.btn-save {
-    flex: 1;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: var(--radius);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-cancel {
-    background: var(--hover-color);
-    color: var(--text-secondary);
-}
-
-.btn-cancel:hover {
-    background: var(--border-color);
-}
-
-.btn-save {
-    background: var(--primary-color);
-    color: white;
-}
-
-.btn-save:hover {
-    background: var(--primary-dark);
-}
 
 /* Estados vazios */
 .empty-state {
