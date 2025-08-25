@@ -23,5 +23,13 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Initialize the bookmark manager
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, initializing bookmark manager');
+            const manager = new BookmarkManager();
+            manager.init();
+        });
+    </script>
 </body>
 </html>

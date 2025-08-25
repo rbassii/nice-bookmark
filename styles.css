@@ -184,6 +184,54 @@ body {
 
 
 
+/* Thumbnail preview */
+.bookmark-preview {
+    position: absolute;
+    top: -10px;
+    left: 200px;
+    width: 196px;
+    height: 128px;
+    background: white;
+    border: 1px solid var(--text-primary);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Show thumbnail on hover */
+.bookmark-item:hover .bookmark-preview {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bookmark-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.bookmark-preview.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.bookmark-item {
+    position: relative;
+}
+
+.bookmark-item:hover .bookmark-preview {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Estados vazios */
 .empty-state {
     text-align: center;

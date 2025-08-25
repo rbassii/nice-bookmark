@@ -309,6 +309,9 @@ class BookmarkManager {
             
         // Adicionar eventos de toggle
         this.bindCategoryToggles();
+        
+        // Add thumbnail positioning after DOM is ready
+        setTimeout(() => this.bindThumbnailPositioning(), 100);
     }
 
     groupBookmarksByCategory() {
@@ -356,7 +359,8 @@ class BookmarkManager {
     }
 
     bindCategoryToggles() {
-        document.querySelectorAll('.category-header').forEach(header => {
+        const headers = document.querySelectorAll('.category-header');
+        headers.forEach(header => {
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
                 const toggle = header.querySelector('.category-toggle i');
@@ -366,17 +370,44 @@ class BookmarkManager {
                 toggle.classList.toggle('fa-chevron-down');
             });
         });
+        
+        // Add hover events for dynamic thumbnail positioning
+        this.bindThumbnailPositioning();
+    }
+    
+    bindThumbnailPositioning() {
+        const bookmarkItems = document.querySelectorAll('.bookmark-item');
+        bookmarkItems.forEach(item => {
+            const link = item.querySelector('.bookmark-title');
+            const preview = item.querySelector('.bookmark-preview');
+            
+            if (link && preview) {
+                item.addEventListener('mouseenter', () => {
+                    // Calculate text width and position thumbnail
+                    const textWidth = link.offsetWidth;
+                    const leftPosition = textWidth + 88;
+                    preview.style.left = `${leftPosition}px`;
+                });
+            }
+        });
     }
 
     getBookmarkHTML(bookmark) {
+        const showPreview = bookmark.category === 'designers';
+        
         return `
-            <div class="bookmark-card" data-id="${bookmark.id}">
-                <div class="bookmark-content">
-                    <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer" class="bookmark-title">
-                        ${this.escapeHtml(bookmark.title)}
-                    </a>
-                    ${bookmark.description ? `<p class="bookmark-description">${this.escapeHtml(bookmark.description)}</p>` : ''}
-                </div>
+            <div class="bookmark-item">
+                <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer" class="bookmark-title">
+                    ${this.escapeHtml(bookmark.title)}
+                </a>
+                ${showPreview ? `
+                    <div class="bookmark-preview loading">
+                        <img src="https://api.screenshotmachine.com/?key=demo&url=${encodeURIComponent(bookmark.url)}&dimension=1024x768" 
+                             alt="Preview of ${this.escapeHtml(bookmark.title)}"
+                             onload="this.parentElement.classList.remove('loading')"
+                             onerror="this.parentElement.innerHTML='Preview unavailable'">
+                    </div>
+                ` : ''}
             </div>
         `;
     }
