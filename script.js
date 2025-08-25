@@ -103,6 +103,33 @@ class BookmarkManager {
                 category: 'materias',
                 tags: ['escrita', 'conteúdo'],
                 createdAt: new Date().toISOString()
+            },
+            {
+                id: 10,
+                title: 'Dribbble',
+                url: 'https://dribbble.com',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'portfolio'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 11,
+                title: 'Behance',
+                url: 'https://behance.net',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'portfolio'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 12,
+                title: 'Awwwards',
+                url: 'https://awwwards.com',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'awards'],
+                createdAt: new Date().toISOString()
             }
         ];
     }
