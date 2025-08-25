@@ -105,30 +105,111 @@ class BookmarkManager {
                 createdAt: new Date().toISOString()
             },
             {
-                id: 10,
-                title: 'Dribbble',
-                url: 'https://dribbble.com',
+                id: 13,
+                title: 'App Inspo',
+                url: 'https://appinspo.com',
                 description: '',
                 category: 'designers',
-                tags: ['design', 'portfolio'],
+                tags: ['design', 'inspiration'],
                 createdAt: new Date().toISOString()
             },
             {
-                id: 11,
-                title: 'Behance',
-                url: 'https://behance.net',
+                id: 14,
+                title: 'Cosmos',
+                url: 'https://cosmos.so/home',
                 description: '',
                 category: 'designers',
-                tags: ['design', 'portfolio'],
+                tags: ['design', 'inspiration'],
                 createdAt: new Date().toISOString()
             },
             {
-                id: 12,
-                title: 'Awwwards',
-                url: 'https://awwwards.com',
+                id: 15,
+                title: 'Best Designs on X',
+                url: 'https://bestdesignsonx.com',
                 description: '',
                 category: 'designers',
-                tags: ['design', 'awards'],
+                tags: ['design', 'inspiration'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 16,
+                title: 'Browsing Mode',
+                url: 'https://browsingmode.com',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'inspiration'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 17,
+                title: 'Maxi Best Of',
+                url: 'https://maxibestof.one',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'inspiration'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 18,
+                title: 'Startups Gallery',
+                url: 'https://startups.gallery',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'startups'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 19,
+                title: 'A Fresh Website',
+                url: 'https://a-fresh.website',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'inspiration'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 20,
+                title: 'Site Inspire',
+                url: 'https://siteinspire.com',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'inspiration'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 21,
+                title: 'Spotlight',
+                url: 'https://spotlight.partdirector.ch/',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'inspiration'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 22,
+                title: 'The Brand Identity',
+                url: 'https://the-brandidentity.com',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'branding'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 23,
+                title: 'Spotted in Prod',
+                url: 'https://spottedinprod.com',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'inspiration'],
+                createdAt: new Date().toISOString()
+            },
+            {
+                id: 24,
+                title: 'Land Book',
+                url: 'https://land-book.com',
+                description: '',
+                category: 'designers',
+                tags: ['design', 'landing-pages'],
                 createdAt: new Date().toISOString()
             }
         ];
