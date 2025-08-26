@@ -28,7 +28,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM loaded, initializing bookmark manager');
             const manager = new BookmarkManager();
-            manager.init();
+            // Don't call init() here since constructor already calls it
         });
     </script>
 </body>

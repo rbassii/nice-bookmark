@@ -393,21 +393,11 @@ class BookmarkManager {
     }
 
     getBookmarkHTML(bookmark) {
-        const showPreview = bookmark.category === 'designers';
-        
         return `
             <div class="bookmark-item">
                 <a href="${bookmark.url}" target="_blank" rel="noopener noreferrer" class="bookmark-title">
                     ${this.escapeHtml(bookmark.title)}
                 </a>
-                ${showPreview ? `
-                    <div class="bookmark-preview loading">
-                        <img src="https://api.screenshotmachine.com/?key=demo&url=${encodeURIComponent(bookmark.url)}&dimension=1024x768" 
-                             alt="Preview of ${this.escapeHtml(bookmark.title)}"
-                             onload="this.parentElement.classList.remove('loading')"
-                             onerror="this.parentElement.innerHTML='Preview unavailable'">
-                    </div>
-                ` : ''}
             </div>
         `;
     }

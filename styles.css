@@ -30,12 +30,15 @@ body {
     min-height: 100vh;
     color: var(--text-primary);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
+    width: calc(100% - 40px);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Header */
@@ -78,10 +81,13 @@ body {
 /* Seções de categoria */
 .category-section {
     background: white;
-    border-radius: 0;
-    overflow: hidden;
-    border-bottom: 1px solid var(--text-primary);
     margin-bottom: 2rem;
+}
+
+.bookmark-item {
+    position: relative;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .category-header {
@@ -184,53 +190,62 @@ body {
 
 
 
-/* Thumbnail preview */
-.bookmark-preview {
-    position: absolute;
-    top: -10px;
-    left: 200px;
-    width: 196px;
-    height: 128px;
-    background: white;
-    border: 1px solid var(--text-primary);
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    z-index: 1000;
-    pointer-events: none;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+        width: calc(100% - 32px);
+    }
+    
+    .header {
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .category-header {
+        padding: 1rem;
+    }
+    
+    .bookmark-item {
+        padding: 12px 0;
+    }
+    
 }
 
-/* Show thumbnail on hover */
-.bookmark-item:hover .bookmark-preview {
-    opacity: 1;
-    visibility: visible;
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+        width: calc(100% - 24px);
+    }
 }
 
-.bookmark-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 3px;
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+        width: calc(100% - 24px);
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .credit {
+        font-size: 0.875rem;
+    }
+    
+    .category-title {
+        font-size: 1.125rem;
+    }
+    
 }
 
-.bookmark-preview.loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-}
 
-.bookmark-item {
-    position: relative;
-}
-
-.bookmark-item:hover .bookmark-preview {
-    opacity: 1;
-    visibility: visible;
-}
 
 /* Estados vazios */
 .empty-state {
