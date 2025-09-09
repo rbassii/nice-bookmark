@@ -105,6 +105,15 @@ class BookmarkManager {
                 createdAt: new Date().toISOString()
             },
             {
+                id: 10,
+                title: 'Gen IA',
+                url: 'https://andmata.com/gen-ai',
+                description: '',
+                category: 'materias',
+                tags: ['ai', 'inteligência artificial'],
+                createdAt: new Date().toISOString()
+            },
+            {
                 id: 13,
                 title: 'App Inspo',
                 url: 'https://appinspo.com',

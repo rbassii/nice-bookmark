@@ -75,13 +75,13 @@ body {
 .bookmarks-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.5rem;
 }
 
 /* Seções de categoria */
 .category-section {
     background: white;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .bookmark-item {
