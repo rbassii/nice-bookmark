@@ -30,8 +30,8 @@ const bookmarksData = {
 // Função para criar o HTML de uma categoria
 function createCategoryHTML(categoryName, categoryData) {
     const categoryLabels = {
-        materias: 'Matérias',
-        designers: 'Designers'
+        materias: 'Articles',
+        designers: 'Reference'
     };
 
     const bookmarksList = categoryData.map(bookmark => 
@@ -59,12 +59,12 @@ function toggleCategory(categoryName) {
     const header = content.previousElementSibling;
     const icon = header.querySelector('.toggle-icon');
     
-    if (content.style.display === 'none') {
-        content.style.display = 'block';
-        icon.textContent = '−';
-    } else {
-        content.style.display = 'none';
+    content.classList.toggle('collapsed');
+    
+    if (content.classList.contains('collapsed')) {
         icon.textContent = '+';
+    } else {
+        icon.textContent = '−';
     }
 }
 
