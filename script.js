@@ -50,6 +50,16 @@ const bookmarksData = {
         { title: 'Mucho', url: 'https://mucho.ws' },
         { title: 'Hey Studio', url: 'https://heystudio.es' },
         { title: 'Spin', url: 'https://spin.studio' }
+    ],
+    aidesign: [
+        { title: '21st Century Design', url: 'https://21st.dev/' },
+        { title: 'Runway ML', url: 'https://runwayml.com' },
+        { title: 'Midjourney Showcase', url: 'https://www.midjourney.com/showcase' },
+        { title: 'Adobe Firefly', url: 'https://firefly.adobe.com' },
+        { title: 'Figma AI', url: 'https://www.figma.com/ai' },
+        { title: 'Framer AI', url: 'https://www.framer.com/ai' },
+        { title: 'Uizard', url: 'https://uizard.io' },
+        { title: 'Galileo AI', url: 'https://www.usegalileo.ai' }
     ]
 };
 
@@ -59,7 +69,8 @@ function createCategoryHTML(categoryName, categoryData) {
         materias: 'Articles',
         designers: 'Reference',
         type: 'Type',
-        studios: 'Studios'
+        studios: 'Studios',
+        aidesign: 'AI Design'
     };
 
     const bookmarksList = categoryData.map(bookmark => 
