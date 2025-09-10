@@ -24,6 +24,32 @@ const bookmarksData = {
         { title: 'The Brand Identity', url: 'https://the-brandidentity.com' },
         { title: 'Spotted in Prod', url: 'https://spottedinprod.com' },
         { title: 'Land Book', url: 'https://land-book.com' }
+    ],
+    type: [
+        { title: 'Google Fonts', url: 'https://fonts.google.com' },
+        { title: 'Adobe Fonts', url: 'https://fonts.adobe.com' },
+        { title: 'Font Squirrel', url: 'https://www.fontsquirrel.com' },
+        { title: 'Typewolf', url: 'https://www.typewolf.com' },
+        { title: 'Fonts In Use', url: 'https://fontsinuse.com' },
+        { title: 'Type Scale', url: 'https://typescale.com' },
+        { title: 'Fontjoy', url: 'https://fontjoy.com' },
+        { title: 'Font Pair', url: 'https://fontpair.co' },
+        { title: 'René Bieder', url: 'https://www.renebieder.com/' },
+        { title: 'Polytype', url: 'https://polytype.co.uk/' },
+        { title: 'Uncut', url: 'https://uncut.wtf/' },
+        { title: 'Maxitype', url: 'https://maxitype.com/' },
+        { title: 'Fabio Haag Type', url: 'https://fabiohaagtype.com/quem-somos/' },
+        { title: 'TypeType Brazil', url: 'https://typetype.org/fonts/brazil/' }
+    ],
+    studios: [
+        { title: 'Pentagram', url: 'https://www.pentagram.com' },
+        { title: 'IDEO', url: 'https://www.ideo.com' },
+        { title: 'Sagmeister & Walsh', url: 'https://sagmeisterwalsh.com' },
+        { title: 'Base Design', url: 'https://basedesign.com' },
+        { title: 'Studio Dumbar', url: 'https://studiodumbar.com' },
+        { title: 'Mucho', url: 'https://mucho.ws' },
+        { title: 'Hey Studio', url: 'https://heystudio.es' },
+        { title: 'Spin', url: 'https://spin.studio' }
     ]
 };
 
@@ -31,7 +57,9 @@ const bookmarksData = {
 function createCategoryHTML(categoryName, categoryData) {
     const categoryLabels = {
         materias: 'Articles',
-        designers: 'Reference'
+        designers: 'Reference',
+        type: 'Type',
+        studios: 'Studios'
     };
 
     const bookmarksList = categoryData.map(bookmark => 
