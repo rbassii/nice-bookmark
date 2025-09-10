@@ -59,7 +59,8 @@ const bookmarksData = {
         { title: 'Figma AI', url: 'https://www.figma.com/ai' },
         { title: 'Framer AI', url: 'https://www.framer.com/ai' },
         { title: 'Uizard', url: 'https://uizard.io' },
-        { title: 'Galileo AI', url: 'https://www.usegalileo.ai' }
+        { title: 'Galileo AI', url: 'https://www.usegalileo.ai' },
+        { title: 'Patterncraft', url: 'https://patterncraft.fun/' }
     ]
 };
 
