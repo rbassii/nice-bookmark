@@ -374,7 +374,27 @@ class BookmarkManager {
                 const content = header.nextElementSibling;
                 const toggle = header.querySelector('.category-toggle i');
                 
-                content.classList.toggle('active');
+                // Smooth toggle with proper height calculation
+                if (content.classList.contains('active')) {
+                    // Closing
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    requestAnimationFrame(() => {
+                        content.style.maxHeight = '0px';
+                        content.classList.remove('active');
+                    });
+                } else {
+                    // Opening
+                    content.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    
+                    // Reset max-height after transition
+                    setTimeout(() => {
+                        if (content.classList.contains('active')) {
+                            content.style.maxHeight = '2000px';
+                        }
+                    }, 300);
+                }
+                
                 toggle.classList.toggle('fa-chevron-up');
                 toggle.classList.toggle('fa-chevron-down');
             });
