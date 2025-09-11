@@ -23,7 +23,8 @@ const bookmarksData = {
         { title: 'Spotlight', url: 'https://spotlight.partdirector.ch/' },
         { title: 'The Brand Identity', url: 'https://the-brandidentity.com' },
         { title: 'Spotted in Prod', url: 'https://spottedinprod.com' },
-        { title: 'Land Book', url: 'https://land-book.com' }
+        { title: 'Land Book', url: 'https://land-book.com' },
+        { title: 'Defining Design', url: 'https://defining.design/' }
     ],
     type: [
         { title: 'Google Fonts', url: 'https://fonts.google.com' },
