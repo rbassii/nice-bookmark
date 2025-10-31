@@ -130,4 +130,69 @@ document.addEventListener('DOMContentLoaded', function() {
         .join('');
     
     container.innerHTML = categoriesHTML;
+
+    const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+    const cache = new Map();
+    const preview = document.createElement('div');
+    preview.className = 'link-preview';
+    const img = document.createElement('img');
+    preview.appendChild(img);
+    document.body.appendChild(preview);
+
+    function positionPreview(x, y) {
+        const offset = 18;
+        const width = 380;
+        const height = 220;
+        let px = x + offset;
+        let py = y + offset;
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        if (px + width > vw - 8) px = Math.max(8, x - width - offset);
+        if (py + height > vh - 8) py = Math.max(8, y - height - offset);
+        preview.style.transform = `translate(${px}px, ${py}px)`;
+    }
+
+    async function getPreview(url) {
+        if (cache.has(url)) return cache.get(url);
+        try {
+            const u = new URL(url);
+            const resp = await fetch(`https://api.microlink.io?url=${encodeURIComponent(url)}&meta=true`);
+            const data = await resp.json();
+            const imageUrl = data?.data?.image?.url || `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=256`;
+            cache.set(url, imageUrl);
+            return imageUrl;
+        } catch (e) {
+            try {
+                const u = new URL(url);
+                const fallback = `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=256`;
+                cache.set(url, fallback);
+                return fallback;
+            } catch {
+                return '';
+            }
+        }
+    }
+
+    function attachHoverPreviews() {
+        const links = document.querySelectorAll('.bookmarks-list a');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', async (ev) => {
+                if (!isDesktop()) return;
+                const url = link.getAttribute('href');
+                preview.style.opacity = '1';
+                positionPreview(ev.clientX, ev.clientY);
+                const src = await getPreview(url);
+                if (src) img.src = src;
+            });
+            link.addEventListener('mousemove', (ev) => {
+                if (!isDesktop()) return;
+                positionPreview(ev.clientX, ev.clientY);
+            });
+            link.addEventListener('mouseleave', () => {
+                preview.style.opacity = '0';
+            });
+        });
+    }
+
+    attachHoverPreviews();
 });
