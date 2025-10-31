@@ -9,7 +9,16 @@ const bookmarksData = {
         { title: 'How to Measure the ROI of AI Coding Assistants', url: 'https://thenewstack.io/how-to-measure-the-roi-of-ai-coding-assistants/' },
         { title: 'Designing AI Agents That Work at Work', url: 'https://www.designexecutivecouncil.com/insights/designing-ai-agents-that-work-at-work' },
         { title: 'Small Bets', url: 'https://mikefisher.substack.com/p/small-bets' },
-        { title: 'Dan Hollick - Typefully', url: 'https://typefully.com/DanHollick' }
+        { title: 'Dan Hollick - Typefully', url: 'https://typefully.com/DanHollick' },
+        { title: 'Great products do less (UX Collective)', url: 'https://uxdesign.cc/great-products-do-less-things-but-better-5dde0ee3fc76' },
+        { title: 'Design at The Economist', url: 'https://verifiedinsider.substack.com/p/design-at-the-economist' },
+        { title: 'Felix Lee', url: 'https://felixlee.dev' },
+        { title: 'The future of product design', url: 'https://verifiedinsider.substack.com/p/the-future-of-product-design' },
+        { title: 'Dieter Rams: Good Design (Vitsoe)', url: 'https://www.vitsoe.com/gb/about/good-design#good-design-is-environmentally-friendly' },
+        { title: 'Articulating Design Decisions', url: 'https://www.fundament.design/p/articulating-design-decisions' },
+        { title: 'First Principles First', url: 'https://tidyfirst.substack.com/p/first-principles-first' },
+        { title: 'The End of Design Report', url: 'https://www.suffsyed.com/the-end-of-design-report' },
+        { title: 'The Importance of Leadership', url: 'https://mikefisher.substack.com/p/the-importance-of-leadership' }
     ],
     designers: [
         { title: 'App Inspo', url: 'https://appinspo.com' },
@@ -50,7 +59,8 @@ const bookmarksData = {
         { title: 'Studio Dumbar', url: 'https://studiodumbar.com' },
         { title: 'Mucho', url: 'https://mucho.ws' },
         { title: 'Hey Studio', url: 'https://heystudio.es' },
-        { title: 'Spin', url: 'https://spin.studio' }
+        { title: 'Spin', url: 'https://spin.studio' },
+        { title: 'Ashfall — Aptos', url: 'https://ashfall.studio/work/aptos' }
     ],
     aidesign: [
         { title: '21st Century Design', url: 'https://21st.dev/' },
@@ -61,7 +71,8 @@ const bookmarksData = {
         { title: 'Framer AI', url: 'https://www.framer.com/ai' },
         { title: 'Uizard', url: 'https://uizard.io' },
         { title: 'Galileo AI', url: 'https://www.usegalileo.ai' },
-        { title: 'Patterncraft', url: 'https://patterncraft.fun/' }
+        { title: 'Patterncraft', url: 'https://patterncraft.fun/' },
+        { title: 'Microsoft AI', url: 'https://microsoft.ai' }
     ]
 };
 
