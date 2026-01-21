@@ -21,6 +21,7 @@ const bookmarksData = {
         { title: 'The Importance of Leadership', url: 'https://mikefisher.substack.com/p/the-importance-of-leadership' }
     ],
     designers: [
+        { title: 'Generative Design', url: 'https://www.generativ.design/' },
         { title: 'App Inspo', url: 'https://appinspo.com' },
         { title: 'Cosmos', url: 'https://cosmos.so/home' },
         { title: 'Best Designs on X', url: 'https://bestdesignsonx.com' },
@@ -63,6 +64,7 @@ const bookmarksData = {
         { title: 'Ashfall — Aptos', url: 'https://ashfall.studio/work/aptos' }
     ],
     aidesign: [
+        { title: 'Gemini AI Visual Design (Google)', url: 'https://design.google/library/gemini-ai-visual-design' },
         { title: '21st Century Design', url: 'https://21st.dev/' },
         { title: 'Runway ML', url: 'https://runwayml.com' },
         { title: 'Midjourney Showcase', url: 'https://www.midjourney.com/showcase' },
