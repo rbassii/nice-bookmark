@@ -22,6 +22,10 @@ html {
     --success-color: #10b981;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --hover-bg: rgba(0, 0, 0, 0.05);
+    --preview-bg: #f5f5f5;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -29,9 +33,22 @@ html {
     --radius-lg: 12px;
 }
 
+:root[data-theme="dark"] {
+    --secondary-color: #0b1220;
+    --text-primary: #e5e7eb;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-color: #1f2937;
+    --hover-color: #111827;
+    --bg: #0b1220;
+    --surface: #0b1220;
+    --hover-bg: rgba(255, 255, 255, 0.08);
+    --preview-bg: #111827;
+}
+
 body {
     font-family: 'JetBrains Mono', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace, sans-serif;
-    background: #FFFFFF;
+    background: var(--bg);
     min-height: 100vh;
     color: var(--text-primary);
     line-height: 1.6;
@@ -55,6 +72,31 @@ body {
     align-items: center;
     margin-bottom: 3rem;
     padding-bottom: 1rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
 }
 
 .title {
@@ -87,7 +129,7 @@ body {
 
 /* Seções de categoria */
 .category-section {
-    background: white;
+    background: var(--surface);
     margin-bottom: 0;
 }
 
@@ -142,7 +184,7 @@ body {
 }
 
 .category-toggle:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--hover-bg);
 }
 
 .category-toggle i {
@@ -390,7 +432,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    background: #f5f5f5 center/cover no-repeat;
+    background: var(--preview-bg) center/cover no-repeat;
     border: 1px solid var(--border-color);
     z-index: 9999;
     pointer-events: none;
