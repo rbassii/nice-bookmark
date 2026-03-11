@@ -86,6 +86,9 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
+    min-width: 40px;
+    flex: 0 0 40px;
+    aspect-ratio: 1 / 1;
     border-radius: 999px;
     border: 1px solid var(--border-color);
     background: transparent;
