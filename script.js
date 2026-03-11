@@ -165,6 +165,21 @@ document.addEventListener('DOMContentLoaded', function() {
             setTheme(nextTheme);
         });
     }
+
+    const creditLink = document.querySelector('.credit-link');
+    if (creditLink) {
+        const redirectToPortfolio = () => {
+            window.location.href = creditLink.href;
+        };
+
+        if (window.PointerEvent) {
+            creditLink.addEventListener('pointerenter', (ev) => {
+                if (ev.pointerType === 'mouse') redirectToPortfolio();
+            });
+        } else {
+            creditLink.addEventListener('mouseenter', redirectToPortfolio);
+        }
+    }
     
     // Gerar HTML para todas as categorias
     const categoriesHTML = Object.entries(bookmarksData)

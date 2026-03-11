@@ -116,6 +116,16 @@ body {
     font-weight: 400;
 }
 
+.credit-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.credit-link:hover {
+    text-decoration: underline;
+}
+
 .subtitle {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.8);
